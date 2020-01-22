@@ -1,3 +1,4 @@
+s
 # eParadeFrontend
 
 > My epic Nuxt.js project
