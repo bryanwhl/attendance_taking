@@ -5,18 +5,32 @@
       {{name}}
       <br />
       <br />
-      <b-label v-for="(time, tidx) in daytimeList" :key="tidx" :value="time" name="time" :native-value="time">
-        <span style="display: inline-block">{{time}}</span>
+      <b-field :label="time" v-for="(time, tidx) in daytimeList" :key="tidx" style ="display: inline-block">
+        <!-- <span style="display: inline-block">{{time}}</span> -->
 
         <div class="block" style="width:100%; height:50px; display: inline-block">
-          <div class="ex1">
-            <b-label style="display: inline-block; padding-left:20px;" v-for="(status, sidx) in statusList" :key="sidx" :value="status" v-model="radio" name="name" :native-value="status">
+            <b-select placeholder="Select Status">
+                <option
+                    v-for="(status, sidx) in statusList"
+                    :value="status"
+                    :key="sidx">
+                    {{ status }}
+                </option>
+            </b-select>
+            <!-- <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
+              <b-dropdown-item>First Action</b-dropdown-item>
+              <b-dropdown-item>Second Action</b-dropdown-item>
+              <b-dropdown-item>Third Action</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item active>Active action</b-dropdown-item>
+              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+            </b-dropdown> -->
+            <!-- <b-label style="display: inline-block; padding-left:20px;" v-for="(status, sidx) in statusList" :key="sidx" :value="status" v-model="radio" name="name" :native-value="status">
               {{status}}
               <input type="radio" name="editList" value="status">
-            </b-label>
-          </div>
+            </b-label> -->
         </div>
-      </b-label>
+      </b-field>
     </div>
   </div>
 
@@ -100,7 +114,7 @@ aside.section {
 }
 
 div.ex1 {
-  overflow: auto;
+  overflow-x: scroll;
 }
 
 .radio {
