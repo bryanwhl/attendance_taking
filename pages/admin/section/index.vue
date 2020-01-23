@@ -6,6 +6,7 @@
           <b-table-column field="id">{{props.row.id}}</b-table-column>
           <b-table-column field="name">{{props.row.name}}</b-table-column>
           <b-table-column class="has-text-right">
+            <b-button type="is-info" icon-right="square-edit-outline"></b-button>
             <b-button type="is-danger" icon-right="delete" />
           </b-table-column>
         </template>
