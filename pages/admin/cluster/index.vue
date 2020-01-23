@@ -27,7 +27,7 @@
             </template>
           </b-table>
         </b-tab-item>
-        <!-- 
+        <!--
         <b-tab-item label="Checked rows">
           <pre>{{ checkedRows }}</pre>
         </b-tab-item>-->
