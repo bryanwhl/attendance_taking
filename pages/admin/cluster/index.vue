@@ -22,14 +22,15 @@
             :checkbox-position="checkboxPosition"
           >
             <template slot="bottom-left">
-              <b>Total checked</b>: {{ checkedRows.length }}
+              <b>Total checked</b>
+              : {{ checkedRows.length }}
             </template>
           </b-table>
         </b-tab-item>
-<!-- 
+        <!-- 
         <b-tab-item label="Checked rows">
           <pre>{{ checkedRows }}</pre>
-        </b-tab-item> -->
+        </b-tab-item>-->
       </b-tabs>
     </section>
   </div>
@@ -38,17 +39,15 @@
 <script>
 export default {
   data() {
-    const data = [
-      { id: 1, name: "HQ" },
-      { id: 2, name: "ARC" },
-      { id: 3, name: "AC" },
-      { id: 4, name: "EC" }
-    ];
-
     return {
-      data,
+      data: [
+        { id: 1, name: "HQ" },
+        { id: 2, name: "ARC" },
+        { id: 3, name: "AC" },
+        { id: 4, name: "EC" }
+      ],
       checkboxPosition: "right",
-      checkedRows: [data[1], data[3]],
+      checkedRows: [],
       columns: [
         {
           field: "id",
