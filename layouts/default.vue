@@ -17,11 +17,6 @@
           >
         </a>
 
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
       </div>
     </nav>
 
@@ -72,3 +67,20 @@ export default {
   }
 }
 </script>
+<style>
+h1{
+  font-size: 150%;
+}
+.formbox {
+  text-transform: uppercase;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 1pt 1pt #DADCE0;
+}
+
+/* section {
+  height:100%
+} */
+</style>
