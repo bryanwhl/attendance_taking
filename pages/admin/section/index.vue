@@ -1,6 +1,9 @@
 <template>
   <div class="elementbox">
     <section>
+      <div class="is-flex">
+        <b-button style="margin-left:auto;" type="is-primary" icon-right="plus"></b-button>
+      </div>
       <b-table :data="data" :columns="columns">
         <template slot-scope="props">
           <b-table-column field="id">{{props.row.id}}</b-table-column>
