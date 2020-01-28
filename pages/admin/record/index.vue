@@ -29,7 +29,7 @@
             <b-table-column field="pm_status" label="Pm Status">{{props.row.pm_status}}</b-table-column>
             <b-table-column class="has-text-right">
               <b-button type="is-info" icon-right="square-edit-outline"></b-button>
-              <b-button type="is-danger" icon-right="delete" />
+              <!-- <b-button type="is-danger" icon-right="delete" /> -->
             </b-table-column>
           </template>
           <!-- <template slot="table-row" slot-scope="props">
