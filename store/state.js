@@ -20,6 +20,13 @@ export default () => ({
     "section4",
     "section5"
   ],
+  clusterList: [
+    "Cluster1",
+    "Cluster2",
+    "Cluster3",
+    "Cluster4",
+    "Cluster5"
+  ],
   nameList: [
     "Garth",
     "Micheal",

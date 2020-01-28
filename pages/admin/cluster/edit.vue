@@ -7,7 +7,7 @@
     <b-field label="Name">
       <b-input v-model="name"></b-input>
     </b-field>
-    <b-button type="is-primary">Add</b-button>
+    <b-button type="is-primary">Edit</b-button>
   </div>
 
 

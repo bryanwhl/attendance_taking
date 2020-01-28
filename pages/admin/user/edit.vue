@@ -21,7 +21,7 @@
         </option>
       </b-select>
     </b-field>
-    <b-button type="is-primary">Add</b-button>
+    <b-button type="is-primary">Edit</b-button>
   </div>
 
 
