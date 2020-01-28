@@ -82,6 +82,9 @@ h1{
 .actionsBtn{
   margin-bottom: 10px;
 }
+.deleteBtn{
+  margin-left:0.3rem;
+}
 
 /* section {
   height:100%

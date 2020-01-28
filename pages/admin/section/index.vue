@@ -1,7 +1,7 @@
 <template>
   <div class="elementbox">
     <section>
-      <div class="is-flex">
+      <div class="is-flex actionsBtn">
         <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
       </div>
       <b-table :data="data">
@@ -10,8 +10,12 @@
           <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
           <b-table-column field="cluster" label="Cluster">{{props.row.cluster}}</b-table-column>
           <b-table-column class="has-text-right">
-            <b-button type="is-info" icon-right="square-edit-outline"></b-button>
-            <b-button type="is-danger" icon-right="delete" />
+            <div class="is-flex">
+              <div style="margin-left:auto;">
+                <b-button type="is-info" icon-right="square-edit-outline" />
+                <b-button class="deleteBtn" type="is-danger" icon-right="delete" />
+              </div>
+            </div>
           </b-table-column>
         </template>
       </b-table>

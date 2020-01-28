@@ -1,7 +1,7 @@
 <template>
 <div class="elementbox">
   <section>
-    <div class="is-flex">
+    <div class="is-flex actionsBtn">
       <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
     </div>
 
