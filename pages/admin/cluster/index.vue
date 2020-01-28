@@ -1,37 +1,16 @@
 <template>
   <div class="elementbox">
     <section>
-      <b-field grouped group-multiline>
-        <button
-          class="button field is-danger"
-          @click="checkedRows = []"
-          :disabled="!checkedRows.length"
-        >
-          <b-icon icon="close"></b-icon>
-          <span>Delete checked</span>
-        </button>
-      </b-field>
-
-      <b-tabs>
-        <b-tab-item label="Table">
-          <b-table
-            :data="data"
-            :columns="columns"
-            :checked-rows.sync="checkedRows"
-            checkable
-            :checkbox-position="checkboxPosition"
-          >
-            <template slot="bottom-left">
-              <b>Total checked</b>
-              : {{ checkedRows.length }}
-            </template>
-          </b-table>
-        </b-tab-item>
-        <!--
-        <b-tab-item label="Checked rows">
-          <pre>{{ checkedRows }}</pre>
-        </b-tab-item>-->
-      </b-tabs>
+      <b-table :data="data" :columns="columns">
+        <template slot-scope="props">
+          <b-table-column field="id">{{props.row.id}}</b-table-column>
+          <b-table-column field="name">{{props.row.name}}</b-table-column>
+          <b-table-column class="has-text-right">
+            <b-button type="is-info" icon-right="square-edit-outline"></b-button>
+            <b-button type="is-danger" icon-right="delete" />
+          </b-table-column>
+        </template>
+      </b-table>
     </section>
   </div>
 </template>
@@ -46,8 +25,6 @@ export default {
         { id: 3, name: "AC" },
         { id: 4, name: "EC" }
       ],
-      checkboxPosition: "right",
-      checkedRows: [],
       columns: [
         {
           field: "id",
@@ -58,7 +35,8 @@ export default {
         {
           field: "name",
           label: "NAME"
-        }
+        },
+        { label: "" }
       ]
     };
   }
