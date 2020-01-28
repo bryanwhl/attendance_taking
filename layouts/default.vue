@@ -79,6 +79,9 @@ h1{
   margin-bottom: 15px;
   box-shadow: 0 0 1pt 1pt #DADCE0;
 }
+.actionsBtn{
+  margin-bottom: 10px;
+}
 
 /* section {
   height:100%

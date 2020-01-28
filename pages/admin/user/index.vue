@@ -1,24 +1,35 @@
 <template>
   <div class="elementbox">
     <section>
-      <b-field grouped group-multiline>
-        <button
-          class="button field is-danger"
-          @click="checkedRows = []"
-          :disabled="!checkedRows.length"
-        >
-          <b-icon icon="close"></b-icon>
-          <span>Delete checked</span>
-        </button>
-      </b-field>
+      <div class="is-flex actionsBtn">
+        <b-field grouped group-multiline style="margin-left:auto;">
+          <button
+            class="button field is-danger"
+            @click="checkedRows = []"
+            :disabled="!checkedRows.length"
+          >
+            <b-icon icon="close"></b-icon>
+            <span>Delete checked</span>
+          </button>
+          <b-button type="is-success" icon-right="plus"></b-button>
+        </b-field>
+      </div>
 
       <b-table
         :data="data"
-        :columns="columns"
         :checked-rows.sync="checkedRows"
         checkable
         :checkbox-position="checkboxPosition"
       >
+        <template slot-scope="props">
+          <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
+          <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
+          <b-table-column field="section" label="Section">{{props.row.section}}</b-table-column>
+          <b-table-column field="cluster" label="Cluster">{{props.row.cluster}}</b-table-column>
+          <b-table-column class="has-text-right">
+            <b-button type="is-info" icon-right="square-edit-outline"></b-button>
+          </b-table-column>
+        </template>
         <template slot="bottom-left">
           <b>Total checked</b>
           : {{ checkedRows.length }}
