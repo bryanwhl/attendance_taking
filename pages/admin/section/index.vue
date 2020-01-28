@@ -2,12 +2,13 @@
   <div class="elementbox">
     <section>
       <div class="is-flex">
-        <b-button style="margin-left:auto;" type="is-primary" icon-right="plus"></b-button>
+        <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
       </div>
       <b-table :data="data" :columns="columns">
         <template slot-scope="props">
-          <b-table-column field="id">{{props.row.id}}</b-table-column>
-          <b-table-column field="name">{{props.row.name}}</b-table-column>
+          <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
+          <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
+          <b-table-column field="cluster" label="Cluster">{{props.row.cluster}}</b-table-column>
           <b-table-column class="has-text-right">
             <b-button type="is-info" icon-right="square-edit-outline"></b-button>
             <b-button type="is-danger" icon-right="delete" />
@@ -23,21 +24,23 @@ export default {
   data() {
     return {
       data: [
-        { id: 1, name: "HQ" },
-        { id: 2, name: "ARC" },
-        { id: 3, name: "AC" },
-        { id: 4, name: "EC" }
+        { id: 1, name: "CO", cluster: "HQ" },
+        { id: 2, name: "S1", cluster: "HQ" },
+        { id: 3, name: "S3", cluster: "HQ" },
+        { id: 4, name: "S4", cluster: "HQ" }
       ],
       columns: [
         {
           field: "id",
-          label: "ID",
-          width: "40",
-          numeric: true
+          label: "ID"
         },
         {
           field: "name",
           label: "NAME"
+        },
+        {
+          field: "cluster",
+          label: "CLUSTER"
         },
         { label: "" }
       ]
