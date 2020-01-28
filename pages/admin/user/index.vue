@@ -12,25 +12,18 @@
         </button>
       </b-field>
 
-      <b-tabs>
-        <b-tab-item label="Table">
-          <b-table
-            :data="data"
-            :columns="columns"
-            :checked-rows.sync="checkedRows"
-            checkable
-            :checkbox-position="checkboxPosition"
-          >
-            <template slot="bottom-left">
-              <b>Total checked</b>: {{ checkedRows.length }}
-            </template>
-          </b-table>
-        </b-tab-item>
-<!-- 
-        <b-tab-item label="Checked rows">
-          <pre>{{ checkedRows }}</pre>
-        </b-tab-item> -->
-      </b-tabs>
+      <b-table
+        :data="data"
+        :columns="columns"
+        :checked-rows.sync="checkedRows"
+        checkable
+        :checkbox-position="checkboxPosition"
+      >
+        <template slot="bottom-left">
+          <b>Total checked</b>
+          : {{ checkedRows.length }}
+        </template>
+      </b-table>
     </section>
   </div>
 </template>
@@ -39,10 +32,9 @@
 export default {
   data() {
     const data = [
-      { id: 1, name: "HQ" },
-      { id: 2, name: "ARC" },
-      { id: 3, name: "AC" },
-      { id: 4, name: "EC" }
+      { id: 1, name: "Wei Hong", section: "CO", cluster: "HQ" },
+      { id: 2, name: "Chun Jie", section: "CO", cluster: "HQ" },
+      { id: 3, name: "Wei Sheng", section: "CO", cluster: "HQ" }
     ];
 
     return {
@@ -52,13 +44,19 @@ export default {
       columns: [
         {
           field: "id",
-          label: "ID",
-          width: "40",
-          numeric: true
+          label: "ID"
         },
         {
           field: "name",
-          label: "NAME"
+          label: "Name"
+        },
+        {
+          field: "section",
+          label: "Section"
+        },
+        {
+          field: "cluster",
+          label: "Cluster"
         }
       ]
     };

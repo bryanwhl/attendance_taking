@@ -1,10 +1,13 @@
 <template>
   <div class="elementbox">
     <section>
+      <div class="is-flex">
+        <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
+      </div>
       <b-table :data="data" :columns="columns">
         <template slot-scope="props">
-          <b-table-column field="id">{{props.row.id}}</b-table-column>
-          <b-table-column field="name">{{props.row.name}}</b-table-column>
+          <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
+          <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
           <b-table-column class="has-text-right">
             <b-button type="is-info" icon-right="square-edit-outline"></b-button>
             <b-button type="is-danger" icon-right="delete" />
