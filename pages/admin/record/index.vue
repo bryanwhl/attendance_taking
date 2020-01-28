@@ -16,15 +16,38 @@
         <b-tab-item label="Table">
           <b-table
             :data="data"
-            :columns="columns"
             :checked-rows.sync="checkedRows"
             checkable
             :checkbox-position="checkboxPosition"
           >
+          <template slot-scope="props">
+            <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
+            <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
+            <b-table-column field="section" label="Section">{{props.row.section}}</b-table-column>
+            <b-table-column field="cluster" label="Cluster">{{props.row.cluster}}</b-table-column>
+            <b-table-column field="am_status" label="Am Status">{{props.row.am_status}}</b-table-column>
+            <b-table-column field="pm_status" label="Pm Status">{{props.row.pm_status}}</b-table-column>
+            <b-table-column class="has-text-right">
+              <b-button type="is-info" icon-right="square-edit-outline"></b-button>
+              <b-button type="is-danger" icon-right="delete" />
+            </b-table-column>
+          </template>
+          <!-- <template slot="table-row" slot-scope="props">
+        <span v-if="props.column.field == 'actions'">
+
+        </span>
+        <span v-else>
+          {{props.formattedRow[props.column.field]}}
+        </span>
+
+        </template> -->
             <template slot="bottom-left">
               <b>Total checked</b>: {{ checkedRows.length }}
             </template>
           </b-table>
+
+
+
         </b-tab-item>
 <!--
         <b-tab-item label="Checked rows">
@@ -39,10 +62,9 @@
 export default {
   data() {
     const data = [
-      { id: 1, name: "HQ" },
-      { id: 2, name: "ARC" },
-      { id: 3, name: "AC" },
-      { id: 4, name: "EC" }
+      { id: 1, name: "Wei Hong", section: "CO", cluster: "HQ", am_status: "Present", pm_status: "Present", actions:''},
+      { id: 2, name: "Chun Jie", section: "CO", cluster: "HQ", am_status: "Present", pm_status: "Present", actions:'' },
+      { id: 3, name: "Wei Sheng", section: "CO", cluster: "HQ", am_status: "Present", pm_status: "Present", actions:'' }
     ];
 
     return {
@@ -52,13 +74,31 @@ export default {
       columns: [
         {
           field: "id",
-          label: "ID",
-          width: "40",
-          numeric: true
+          label: "ID"
         },
         {
           field: "name",
           label: "NAME"
+        },
+        {
+          field: "section",
+          label: "SECTION"
+        },
+        {
+          field: "cluster",
+          label: "CLUSTER"
+        },
+        {
+          field: "am_status",
+          label: "AM STATUS"
+        },
+        {
+          field: "pm_status",
+          label: "PM STATUS"
+        },
+        {
+          field: "actions",
+          label: "ACTIONS"
         }
       ]
     };

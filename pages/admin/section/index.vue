@@ -4,7 +4,7 @@
       <div class="is-flex">
         <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
       </div>
-      <b-table :data="data" :columns="columns">
+      <b-table :data="data">
         <template slot-scope="props">
           <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
           <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>

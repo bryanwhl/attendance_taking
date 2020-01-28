@@ -15,6 +15,22 @@
       </b-select>
     </b-field>
 
+    <b-field label="Section">
+      <b-select expanded placeholder="Select Section">
+        <option v-for="(section, sidx) in sectionList" :value="section" :key="sidx">
+          {{ section }}
+        </option>
+      </b-select>
+    </b-field>
+
+    <b-field label="Cluster">
+      <b-select expanded placeholder="Select Cluster">
+        <option v-for="(cluster, cidx) in clusterList" :value="cluster" :key="cidx">
+          {{ cluster }}
+        </option>
+      </b-select>
+    </b-field>
+
     <b-field label = "AM">
         <b-select expanded placeholder="Select Status" v-model="statusAM">
           <option v-for="(statusAM, sidx) in statusList" :value="statusAM" :key="sidx">
@@ -31,7 +47,7 @@
         </b-select>
     </b-field>
     <b-field>
-      <b-button type="is-primary">edit</b-button>
+      <b-button type="is-primary">Edit</b-button>
     </b-field>
   </div>
 
@@ -47,16 +63,19 @@ export default {
     ...mapState({
       userList: state => state.userList,
       statusList: state => state.statusList,
-      daytimeList: state => state.daytimeList
+      daytimeList: state => state.daytimeList,
+      clusterList: state => state.clusterList,
+      sectionList: state => state.sectionList
     })
   },
   data() {
     return {
       name: '',
       section: '',
+      cluster:'',
       user: '',
       statusAM:'',
-      statusPM:'',
+      statusPM:''
 
     }
   }
