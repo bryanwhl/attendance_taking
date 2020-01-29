@@ -21,7 +21,7 @@ export default {};
     position: fixed;
     display: flex;
     bottom: 0;
-    right: 1%;
+    right: 5%;
     height: 10vh;
     width: 10vw;
     z-index: 3000;
