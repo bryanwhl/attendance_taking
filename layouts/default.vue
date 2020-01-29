@@ -1,46 +1,18 @@
 <template>
   <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a
-          class="navbar-item"
-          href="/"
-        >
-          <img
-            src="~assets/buefy.png"
-            alt="Buefy"
-            height="28"
-          >
-        </a>
+    <b-navbar spaced shadow type="is-primary">
+      <template slot="start">
+        <b-navbar-item
+          v-for="(item, key) of items"
+          :key="key"
+          tag="nuxt-link"
+          :to="item.to"
+        >{{item.title}}</b-navbar-item>
+      </template>
+    </b-navbar>
 
-      </div>
-    </nav>
-
-    <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">
-          General
-        </p>
-        <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <nuxt-link
-              :to="item.to"
-              exact-active-class="is-active"
-            >
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </aside>
-
-      <div class="container column is-10">
+    <section class="main-content">
+      <div class="container">
         <nuxt />
       </div>
     </section>
@@ -49,27 +21,44 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       items: [
         {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
+          title: "Cluster",
+          to: { path: "cluster" }
         },
         {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
+          title: "Section",
+          to: { path: "section" }
+        },
+        {
+          title: "User",
+          to: { path: "user" }
+        },
+        {
+          title: "record",
+          to: { path: "record" }
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 <style>
-h1{
-  font-size: 150%;
+.full-height {
+  height: 100%;
+}
+.section {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+}
+.main-content {
+  background-color: #f0ebf8;
+}
+.nuxt-link-active {
+  background-color: #7957d5;
+  color: #fff;
 }
 .formbox {
   text-transform: uppercase;
@@ -77,16 +66,12 @@ h1{
   padding: 30px;
   border-radius: 15px;
   margin-bottom: 15px;
-  box-shadow: 0 0 1pt 1pt #DADCE0;
+  box-shadow: 0 0 1pt 1pt #dadce0;
 }
-.actionsBtn{
+.actionsBtn {
   margin-bottom: 10px;
 }
-.deleteBtn{
-  margin-left:0.3rem;
+.deleteBtn {
+  margin-left: 0.3rem;
 }
-
-/* section {
-  height:100%
-} */
 </style>
