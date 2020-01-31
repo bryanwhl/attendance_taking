@@ -8,7 +8,4 @@
   </div>
 </template>
 <style>
-.main-content {
-  background-color: #f0ebf8;
-}
 </style>
