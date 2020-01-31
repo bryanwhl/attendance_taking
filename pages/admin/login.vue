@@ -1,26 +1,23 @@
 <template>
-  <section class="section">
-    <div class="columns is-vcentered full-height is-flex">
-      <div class="column">
-        <form class="formbox">
-          <b-field label="Username">
-            <b-input v-model="username"></b-input>
-          </b-field>
-          <b-field label="Password">
-            <b-input v-model="pw" type="password"></b-input>
-          </b-field>
-          <b-field>
-            <b-button type="is-success" expanded @click="login">Login</b-button>
-          </b-field>
-        </form>
-      </div>
-    </div>
+  <section class="section is-flex center-flex">
+    <form class="formbox" style="width: 90%;">
+      <b-field label="Username">
+        <b-input v-model="username" expanded></b-input>
+      </b-field>
+      <b-field label="Password">
+        <b-input v-model="pw" type="password" expanded></b-input>
+      </b-field>
+      <b-field>
+        <b-button type="is-success" @click="login" expanded>Login</b-button>
+      </b-field>
+    </form>
   </section>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 export default {
+  layout: "form",
   data() {
     return {
       username: "",
