@@ -16,7 +16,7 @@
           >{{ cluster.name }}</option>
         </b-select>
       </b-field>
-      <b-button type="is-primary" @click="create">Add</b-button>
+      <b-button type="is-primary" @click="create" :disabled="name === '' || clusterId === null">Add</b-button>
     </div>
   </section>
 </template>

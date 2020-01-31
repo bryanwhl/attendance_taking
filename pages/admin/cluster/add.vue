@@ -7,7 +7,7 @@
       <b-field label="Name">
         <b-input v-model="name"></b-input>
       </b-field>
-      <b-button type="is-primary" @click="create">Add</b-button>
+      <b-button type="is-primary" @click="create" :disabled="name === ''">Add</b-button>
     </div>
   </section>
 </template>

@@ -1,5 +1,4 @@
 <template>
-<div class="elementbox">
   <section>
     <div class="is-flex actionsBtn">
       <b-button style="margin-left:auto;" type="is-success" icon-right="plus"></b-button>
@@ -18,22 +17,21 @@
         </b-table-column>
       </template>
     </b-table>
-
   </section>
-</div>
 </template>
 
 <script>
 export default {
   data() {
-    const data = [{
+    const data = [
+      {
         id: 1,
         name: "Wei Hong",
         section: "CO",
         cluster: "HQ",
         am_status: "Present",
         pm_status: "Present",
-        actions: ''
+        actions: ""
       },
       {
         id: 2,
@@ -42,7 +40,7 @@ export default {
         cluster: "HQ",
         am_status: "Present",
         pm_status: "Present",
-        actions: ''
+        actions: ""
       },
       {
         id: 3,
@@ -51,7 +49,7 @@ export default {
         cluster: "HQ",
         am_status: "Present",
         pm_status: "Present",
-        actions: ''
+        actions: ""
       }
     ];
 
@@ -59,7 +57,8 @@ export default {
       data,
       checkboxPosition: "right",
       checkedRows: [data[1], data[3]],
-      columns: [{
+      columns: [
+        {
           field: "id",
           label: "ID"
         },
@@ -93,12 +92,4 @@ export default {
 };
 </script>
 <style>
-.elementbox {
-  text-transform: uppercase;
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 0 1pt 1pt #dadce0;
-}
 </style>

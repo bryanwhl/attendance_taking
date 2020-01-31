@@ -30,7 +30,7 @@
           >{{ section.name }}</option>
         </b-select>
       </b-field>
-      <b-button type="is-primary">Add</b-button>
+      <b-button type="is-primary" :disabled="sectionId === null || name === ''">Add</b-button>
     </div>
   </section>
 </template>

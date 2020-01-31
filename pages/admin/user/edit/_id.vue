@@ -25,7 +25,11 @@
           >{{ section.name }}</option>
         </b-select>
       </b-field>
-      <b-button type="is-primary" :disabled="person.section_id === null" @click="edit">Edit</b-button>
+      <b-button
+        type="is-primary"
+        :disabled="person.name === '' || person.section_id === null"
+        @click="edit"
+      >Edit</b-button>
     </div>
   </section>
 </template>

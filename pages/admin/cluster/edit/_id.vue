@@ -7,7 +7,7 @@
       <b-field label="Name">
         <b-input v-model="cluster.name"></b-input>
       </b-field>
-      <b-button type="is-info" @click="edit">Edit</b-button>
+      <b-button type="is-info" @click="edit" :disabled="cluster.name === ''">Edit</b-button>
     </div>
   </section>
 </template>

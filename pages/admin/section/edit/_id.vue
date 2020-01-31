@@ -16,7 +16,7 @@
           >{{ cluster.name }}</option>
         </b-select>
       </b-field>
-      <b-button type="is-primary">Edit</b-button>
+      <b-button type="is-primary" :disabled="section.name === ''">Edit</b-button>
     </div>
   </section>
 </template>
