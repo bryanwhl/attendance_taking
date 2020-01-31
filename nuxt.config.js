@@ -1,4 +1,5 @@
-const api_url = "";
+const apiUrl =
+	"http://ec2-13-229-122-67.ap-southeast-1.compute.amazonaws.com:5000/";
 const host = "0.0.0.0";
 export default {
 	mode: "universal",
@@ -60,8 +61,7 @@ export default {
 	},
 	proxy: {
 		"/api/": {
-			target:
-				"http://ec2-13-229-122-67.ap-southeast-1.compute.amazonaws.com:5000/",
+			target: apiUrl,
 			pathRewrite: { "^/api/": "" }
 		}
 	},
