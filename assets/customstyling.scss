@@ -1,0 +1,36 @@
+@import "~bulma/sass/utilities/_all";
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+.center-flex {
+	align-items: center;
+	justify-content: center;
+}
+.full-height {
+	height: 100%;
+}
+.section {
+	min-height: 100vh;
+	padding: 3rem 1.5rem;
+}
+.main-content {
+	background-color: #f0ebf8;
+}
+.nuxt-link-active {
+	background-color: #7957d5;
+	color: #fff;
+}
+.formbox {
+	text-transform: uppercase;
+	background-color: white;
+	padding: 1rem;
+	border-radius: 10px;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 1pt 1pt #dadce0;
+}
+.actionsBtn {
+	margin-bottom: 10px;
+}
+.deleteBtn {
+	margin-left: 0.3rem;
+}
