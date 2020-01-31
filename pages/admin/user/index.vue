@@ -1,6 +1,7 @@
 <template>
-  <div class="elementbox">
-    <section>
+  <section class="section">
+    <div class="formbox">
+      <h1 class="is-size-4">USER</h1>
       <div class="is-flex actionsBtn">
         <b-field grouped group-multiline style="margin-left:auto;">
           <button
@@ -11,76 +12,69 @@
             <b-icon icon="close"></b-icon>
             <span>Delete checked</span>
           </button>
-          <b-button type="is-success" icon-right="plus"></b-button>
+          <b-button type="is-success" icon-right="plus" tag="nuxt-link" :to="'user/add/'"></b-button>
         </b-field>
       </div>
 
       <b-table
-        :data="data"
+        :data="personsList"
         :checked-rows.sync="checkedRows"
         checkable
-        :checkbox-position="checkboxPosition"
+        checkbox-position="right"
       >
         <template slot-scope="props">
           <b-table-column field="id" label="ID">{{props.row.id}}</b-table-column>
           <b-table-column field="name" label="Name">{{props.row.name}}</b-table-column>
-          <b-table-column field="section" label="Section">{{props.row.section}}</b-table-column>
-          <b-table-column field="cluster" label="Cluster">{{props.row.cluster}}</b-table-column>
+          <b-table-column
+            field="section"
+            label="Section"
+          >{{getSectionById(props.row.section_id).name}}</b-table-column>
+          <b-table-column
+            field="cluster"
+            label="Cluster"
+          >{{getClusterById(getSectionById(props.row.section_id).id).name}}</b-table-column>
           <b-table-column class="has-text-right">
-            <b-button type="is-info" icon-right="square-edit-outline"></b-button>
+            <b-button
+              type="is-info"
+              icon-right="square-edit-outline"
+              tag="nuxt-link"
+              :to="'user/edit/' + props.row.id"
+            ></b-button>
           </b-table-column>
         </template>
-        <template slot="bottom-left">
-          <b>Total checked</b>
-          : {{ checkedRows.length }}
-        </template>
       </b-table>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
+import { mapActions, mapState, mapGetters } from "vuex";
 export default {
+  computed: {
+    ...mapState({
+      personsList: state => state.personsList
+    }),
+    ...mapGetters(["getSectionById", "getClusterById"])
+  },
   data() {
-    const data = [
-      { id: 1, name: "Wei Hong", section: "CO", cluster: "HQ" },
-      { id: 2, name: "Chun Jie", section: "CO", cluster: "HQ" },
-      { id: 3, name: "Wei Sheng", section: "CO", cluster: "HQ" }
-    ];
-
     return {
-      data,
-      checkboxPosition: "right",
-      checkedRows: [data[1], data[3]],
-      columns: [
-        {
-          field: "id",
-          label: "ID"
-        },
-        {
-          field: "name",
-          label: "Name"
-        },
-        {
-          field: "section",
-          label: "Section"
-        },
-        {
-          field: "cluster",
-          label: "Cluster"
-        }
-      ]
+      checkedRows: []
     };
+  },
+  async mounted() {
+    await this.getAll("Persons");
+  },
+  methods: {
+    ...mapActions(["deleteResource", "getAll"]),
+    deleteItem(selectedID) {
+      const payload = {
+        name: "Person",
+        id: selectedID
+      };
+      this.deleteResource(payload);
+    }
   }
 };
 </script>
 <style>
-.elementbox {
-  text-transform: uppercase;
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 0 1pt 1pt #dadce0;
-}
 </style>
