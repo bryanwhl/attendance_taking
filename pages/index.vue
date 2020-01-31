@@ -1,21 +1,19 @@
 <template>
-  <section class="section">
-    <ParadeForm></ParadeForm>
-    <PresentCounter></PresentCounter>
+  <section class="section is-flex center-flex">
+    <b-button tag="nuxt-link" to="admin/login" type="is-danger">Admin</b-button>
+    <b-button tag="nuxt-link" to="form" type="is-success" id="form-link-id">Form</b-button>
   </section>
 </template>
 
 <script>
-import ParadeForm from "~/components/ParadeForm";
-import PresentCounter from "~/components/PresentCounter";
-
 export default {
   layout: "form",
-  name: "HomePage",
-
-  components: {
-    ParadeForm,
-    PresentCounter
-  }
+  name: "HomePage"
 };
 </script>
+
+<style>
+#form-link-id {
+  margin-left: 1rem;
+}
+</style>
