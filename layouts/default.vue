@@ -20,58 +20,38 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       items: [
         {
           title: "Cluster",
-          to: { path: "cluster" }
+          to: { path: "/admin/cluster" }
         },
         {
           title: "Section",
-          to: { path: "section" }
+          to: { path: "/admin/section" }
         },
         {
           title: "User",
-          to: { path: "user" }
+          to: { path: "/admin/user" }
         },
         {
           title: "record",
-          to: { path: "record" }
+          to: { path: "/admin/record" }
         }
       ]
     };
+  },
+  async created() {
+    await this.getAll("Clusters");
+    await this.getAll("Sections");
+  },
+  methods: {
+    ...mapActions(["getAll"])
   }
 };
 </script>
 <style>
-.full-height {
-  height: 100%;
-}
-.section {
-  min-height: 100vh;
-  padding: 3rem 1.5rem;
-}
-.main-content {
-  background-color: #f0ebf8;
-}
-.nuxt-link-active {
-  background-color: #7957d5;
-  color: #fff;
-}
-.formbox {
-  text-transform: uppercase;
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 0 1pt 1pt #dadce0;
-}
-.actionsBtn {
-  margin-bottom: 10px;
-}
-.deleteBtn {
-  margin-left: 0.3rem;
-}
 </style>
