@@ -1,8 +1,3 @@
-s
-# eParadeFrontend
-
-> My epic Nuxt.js project
-
 ## Build Setup
 
 ``` bash
